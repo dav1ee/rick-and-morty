@@ -38,6 +38,20 @@ interface CharacterFilter {
   page?: number;
 }
 
+interface Location {
+  id: number;
+  name: string;
+  type: string;
+  dimension: string;
+  residents: Url[];
+  url: Url;
+  created: string;
+}
+
+interface LocationFilter {
+  page?: number;
+}
+
 interface Episode {
   id: number;
   name: string;

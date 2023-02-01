@@ -1,6 +1,11 @@
 import Link from 'next/link';
 
-import { fetchCharacters, fetchMultipleCharacters, fetchEpisodes } from '@utils/api';
+import {
+  fetchCharacters,
+  fetchMultipleCharacters,
+  fetchLocations,
+  fetchEpisodes,
+} from '@utils/api';
 import { getRandomCharacters } from '@utils/helpers';
 import { ROUTES } from '@utils/constants';
 import { Character } from '@components';
@@ -8,16 +13,14 @@ import { Character } from '@components';
 const HomePage = async () => {
   const charactersCount = (await fetchCharacters()).data.info.count;
   const charactersIds = getRandomCharacters(4, charactersCount);
-
-  const [charactersResponse, episodesResponse] = await Promise.all([
-    await fetchMultipleCharacters({
-      params: { multiple: charactersIds },
-    }),
-    await fetchEpisodes(),
-  ]);
+  const charactersResponse = await fetchMultipleCharacters({
+    params: { multiple: charactersIds },
+  });
+  const locationsResponse = await fetchLocations();
+  const episodesResponse = await fetchEpisodes();
 
   const characters = charactersResponse.data;
-  // locations
+  const locationsCount = locationsResponse.data.info.count;
   const episodesCount = episodesResponse.data.info.count;
 
   return (
@@ -36,7 +39,7 @@ const HomePage = async () => {
         </li>
         <li className="bottom-nav__item">
           <Link className="bottom-nav__link" href={`${ROUTES.LOCATIONS}/1`}>
-            locations: 126
+            locations: {locationsCount}
           </Link>
         </li>
         <li className="bottom-nav__item">

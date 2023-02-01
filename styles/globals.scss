@@ -5,6 +5,7 @@
 body {
   background-color: $dark-gray;
   color: $white;
+  overflow-x: hidden;
 
   &::-webkit-scrollbar {
     width: 5px;
@@ -43,4 +44,12 @@ a {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 30px;
+}
+
+#tsparticles {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: -1;
 }
