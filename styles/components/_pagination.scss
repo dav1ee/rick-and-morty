@@ -1,0 +1,28 @@
+.pagination {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  margin-bottom: 30px;
+
+  &-control {
+    background-color: transparent;
+    border: 0;
+    font-size: 14px;
+    color: $green;
+  }
+
+  &-pages {
+    margin: 0 10px;
+
+    &__item {
+      &.active {
+        color: $green;
+        border-bottom: 1px solid $green;
+      }
+
+      &:not(:last-child) {
+        margin-right: 10px;
+      }
+    }
+  }
+}

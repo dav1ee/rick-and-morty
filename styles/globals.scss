@@ -1,0 +1,46 @@
+@import './reset';
+@import './variables';
+@import './components/all';
+
+body {
+  background-color: $dark-gray;
+  color: $white;
+
+  &::-webkit-scrollbar {
+    width: 5px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: $light-gray;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: $green;
+    border-radius: 10px;
+  }
+}
+
+a {
+  color: $white;
+
+  &:hover {
+    color: $green;
+  }
+}
+
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 15px;
+}
+
+.page {
+  padding: 50px 0;
+}
+
+.characters-container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 30px;
+}

@@ -1,0 +1,38 @@
+.header {
+  padding: 15px 0;
+  background-color: $light-gray;
+  box-shadow: $box-shadow;
+
+  &__inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .logo {
+    display: inline-flex;
+
+    svg {
+      width: 45px;
+      height: 45px;
+      fill: $green;
+    }
+  }
+
+  .nav-list {
+    display: flex;
+
+    &__item:not(:last-child) {
+      margin-right: 30px;
+    }
+
+    &__link {
+      font-size: 18px;
+      font-weight: 700;
+
+      &.active {
+        color: $green;
+      }
+    }
+  }
+}

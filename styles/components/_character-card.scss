@@ -1,0 +1,46 @@
+.character-card {
+  display: flex;
+  background-color: $light-gray;
+  box-shadow: $box-shadow;
+  border-radius: 10px;
+
+  &__img {
+    border-radius: 10px 0 0 10px;
+  }
+
+  &__info {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    padding: 15px 15px 15px 25px;
+    border-left: 5px solid $green;
+
+    &-item {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: flex-start;
+      flex: 1 1 0%;
+
+      &:nth-child(2) {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        padding-right: 50px;
+      }
+    }
+
+    &-name {
+      font-size: 24px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      line-height: 30px;
+    }
+
+    &-label {
+      font-size: 14px;
+      opacity: 0.5;
+    }
+  }
+}
