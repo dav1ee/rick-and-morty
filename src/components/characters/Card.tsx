@@ -2,9 +2,10 @@ import Link from 'next/link';
 import Image from 'next/image';
 
 import { ROUTES } from '@utils/constants';
+import { getIdFromUrl } from '@utils/helpers';
 
 export const Card: React.FC<Character> = ({ id, image, name, species, status, location }) => {
-  const locationId = location.url.replace('https://rickandmortyapi.com/api/location/', '');
+  const locationId = getIdFromUrl('location', location.url);
 
   return (
     <article className="character-card">
@@ -36,7 +37,7 @@ export const Card: React.FC<Character> = ({ id, image, name, species, status, lo
         </div>
 
         <div className="character-card__info-item">
-          <span className="character-card__info-label">Location:</span>
+          <span className="character-card__info-label">Last known location:</span>
           {location.url.length > 0 ? (
             <Link href={`${ROUTES.LOCATION}/${locationId}`}>{location.name}</Link>
           ) : (

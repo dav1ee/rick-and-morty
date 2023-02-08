@@ -1,0 +1,55 @@
+.character-details {
+  display: flex;
+
+  &__img {
+    width: 350px;
+    height: 350px;
+    border-radius: 10px;
+    box-shadow: 0 2px 20px rgb($green, 0.5);
+    border: 2px solid $green;
+    opacity: 0;
+    animation: show-up 1s ease-out forwards;
+  }
+
+  &__info {
+    flex: 1;
+    margin-left: 100px;
+    padding-left: 100px;
+    padding-bottom: 10px;
+    border-left: 2px solid $green;
+
+    &-item {
+      font-size: 22px;
+      opacity: 0;
+      animation: fade-in 0.3s ease-out forwards;
+
+      &:first-child {
+        font-size: 30px;
+        font-weight: 700;
+        color: $green;
+      }
+
+      &:not(:last-child) {
+        margin-bottom: 30px;
+      }
+
+      &:nth-child(2) {
+        padding-bottom: 30px;
+        border-bottom: 2px solid $green;
+      }
+
+      @for $i from 1 through 5 {
+        &:nth-child(#{$i + 1}n + #{$i}) {
+          animation-delay: $i * 0.3s;
+        }
+      }
+    }
+
+    &-label {
+      font-size: 16px;
+      font-weight: 400;
+      opacity: 0.5;
+      color: $white;
+    }
+  }
+}

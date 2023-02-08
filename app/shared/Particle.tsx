@@ -1,57 +1,78 @@
 'use client';
 
-import { memo } from 'react';
 import { Particles } from 'react-tsparticles';
 import { loadFull } from 'tsparticles';
 import { Engine } from 'tsparticles-engine';
 
-// eslint-disable-next-line react/display-name
-export const Particle = memo(() => {
-  const particlesInit = async (main: Engine) => {
-    await loadFull(main);
+export const Particle = () => {
+  const init = async (engine: Engine) => {
+    await loadFull(engine);
   };
 
   return (
     <Particles
-      init={particlesInit}
-      params={{
+      init={init}
+      options={{
         particles: {
           number: {
-            value: 160,
+            value: 19,
             density: {
-              enable: true,
-              value_area: 1500,
+              enable: false,
+              value_area: 800,
+            },
+          },
+          color: {
+            value: '#07da63',
+          },
+          shape: {
+            type: 'polygon',
+            stroke: {
+              width: 0,
+              color: '#000000',
+            },
+            polygon: {
+              nb_sides: 7,
+            },
+          },
+          opacity: {
+            value: 0.4,
+            random: false,
+            anim: {
+              enable: false,
+              speed: 1,
+              opacity_min: 0.1,
+              sync: false,
+            },
+          },
+          size: {
+            value: 3.5,
+            random: true,
+            anim: {
+              enable: false,
+              speed: 4.786101162224897,
+              size_min: 0.1,
+              sync: false,
             },
           },
           line_linked: {
-            enable: false,
-            opacity: 0.03,
+            enable: true,
+            distance: 150,
+            color: '#ffffff',
+            opacity: 0.4,
+            width: 1,
           },
           move: {
-            direction: 'right',
-            speed: 0.05,
-          },
-          size: {
-            value: 1,
-          },
-          opacity: {
-            anim: {
-              enable: true,
-              speed: 1,
-              opacity_min: 0.05,
-            },
-          },
-        },
-        interactivity: {
-          events: {
-            onclick: {
-              enable: true,
-              mode: 'push',
-            },
-          },
-          modes: {
-            push: {
-              particles_nb: 1,
+            enable: true,
+            speed: 1,
+            direction: 'none',
+            random: false,
+            straight: false,
+            out_mode: 'out',
+            bounce: false,
+            attract: {
+              enable: false,
+              rotateX: 600,
+              rotateY: 1200,
             },
           },
         },
@@ -59,4 +80,4 @@ export const Particle = memo(() => {
       }}
     />
   );
-});
+};

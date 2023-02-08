@@ -1,5 +1,6 @@
 @import './reset';
 @import './variables';
+@import './animations';
 @import './components/all';
 
 body {
@@ -49,7 +50,14 @@ a {
 #tsparticles {
   position: absolute;
   top: 0;
-  left: 0;
-  right: 0;
+  width: 100%;
+  pointer-events: none;
   z-index: -1;
+  animation: particles 5s ease;
+}
+
+.justify-between {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
