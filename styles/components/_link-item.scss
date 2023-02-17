@@ -1,0 +1,28 @@
+.link-item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 12px 0;
+  background-color: rgb($light-gray, 0.6);
+  border-radius: 10px 0 0 10px;
+  font-size: 18px;
+  letter-spacing: 1px;
+  opacity: 0;
+  animation: fade-in 0.1s ease-out forwards;
+
+  &:nth-child(2n) {
+    border-radius: 0 10px 10px 0;
+  }
+
+  &:hover {
+    background-color: $green;
+    color: $dark-gray;
+    font-weight: 700;
+  }
+
+  @for $i from 1 through 20 {
+    &:nth-child(#{$i + 1}n + #{$i}) {
+      animation-delay: $i * 0.1s;
+    }
+  }
+}
