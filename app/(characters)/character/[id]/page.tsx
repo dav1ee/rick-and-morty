@@ -28,6 +28,7 @@ const CharacterPage = async ({ params }: CharacterPageProps) => {
   const originId = getIdFromUrl('location', character.origin.url);
   const locationId = getIdFromUrl('location', character.location.url);
   const episodeId = getIdFromUrl('episode', character.episode[0]);
+  const episodesIds = character.episode.map((url) => +getIdFromUrl('episode', url));
 
   const episodeResponse = await fetchEpisode({ params: { id: +episodeId } });
   const episodeName = episodeResponse.data.name;
@@ -43,15 +44,22 @@ const CharacterPage = async ({ params }: CharacterPageProps) => {
         priority
       />
 
-      <Character.DetailedInfo
-        originName={character.origin.name}
-        locationName={character.location.name}
-        episodeName={episodeName}
-        originId={originId}
-        locationId={locationId}
-        episodeId={episodeId}
-        {...character}
-      />
+      <div className="character-details__right">
+        <Character.DetailedInfo
+          originName={character.origin.name}
+          locationName={character.location.name}
+          episodeName={episodeName}
+          originId={originId}
+          locationId={locationId}
+          episodeId={episodeId}
+          {...character}
+        />
+
+        <span className="character-details__info-label character-details__info-label--animated">
+          Episodes:
+        </span>
+        <Character.Episodes episodesIds={episodesIds} />
+      </div>
     </div>
   );
 };

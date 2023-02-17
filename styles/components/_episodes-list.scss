@@ -1,0 +1,27 @@
+.episodes-list {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 10px;
+  opacity: 0;
+  animation: fade-in 0.3s ease-out forwards;
+  animation-delay: 1.8s;
+
+  &__item {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 37px;
+    height: 37px;
+    margin: 0 10px 10px 0;
+    background-color: rgb($light-gray, 0.6);
+    border-radius: 4px;
+    color: $green;
+    font-size: 16px;
+    box-shadow: $box-shadow;
+
+    &:hover {
+      border: 2px solid $green;
+      transform: scale(1.2);
+    }
+  }
+}

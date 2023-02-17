@@ -27,7 +27,6 @@ export const DetailedInfo: React.FC<Character & DetailedInfoProps> = ({
   return (
     <div className="character-details__info">
       <div className="character-details__info-item">
-        <span className="character-details__info-label">Name:</span>
         <div>{name}</div>
       </div>
 
