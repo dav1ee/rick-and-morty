@@ -1,7 +1,7 @@
 import { fetchEpisodes } from '@utils/api';
 import { ROUTES } from '@utils/constants';
 import { LinkItem } from '@components';
-import { Pagination } from '../../../shared/Pagination';
+import { Pagination } from '../../../../src/components/Pagination';
 
 export const generateStaticParams = async () => {
   const episodesResponse = await fetchEpisodes();
@@ -28,7 +28,11 @@ const EpisodesPage = async ({ params }: EpisodesPageProps) => {
 
   return (
     <>
-      <Pagination route={ROUTES.EPISODES} totalPages={episodesPages} currentPage={+params.page} />
+      <Pagination
+        href={{ pathname: ROUTES.EPISODES }}
+        totalPages={episodesPages}
+        currentPage={+params.page}
+      />
 
       <div className="items-container">
         {episodes.map((episode) => (

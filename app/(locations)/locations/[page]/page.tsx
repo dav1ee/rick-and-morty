@@ -1,7 +1,7 @@
 import { fetchLocations } from '@utils/api';
 import { ROUTES } from '@utils/constants';
 import { LinkItem } from '@components';
-import { Pagination } from '../../../shared/Pagination';
+import { Pagination } from '../../../../src/components/Pagination';
 
 export const generateStaticParams = async () => {
   const locationsResponse = await fetchLocations();
@@ -28,7 +28,11 @@ const LocationsPage = async ({ params }: LocationsPageProps) => {
 
   return (
     <>
-      <Pagination route={ROUTES.LOCATIONS} totalPages={locationsPages} currentPage={+params.page} />
+      <Pagination
+        href={{ pathname: ROUTES.LOCATIONS }}
+        totalPages={locationsPages}
+        currentPage={+params.page}
+      />
 
       <div className="items-container">
         {locations.map((location) => (

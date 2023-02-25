@@ -36,6 +36,9 @@ interface Character {
 
 interface CharacterFilter {
   page?: number;
+  status?: Character['status'];
+  gender?: Character['gender'];
+  name?: Character['name'];
 }
 
 interface Location {

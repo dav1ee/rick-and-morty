@@ -5,7 +5,19 @@ interface FetchCharactersParams {
 }
 
 export const fetchCharacters = async ({ params }: FetchCharactersParams = {}) => {
-  return await api.get<Result<Character>>('/character', { params });
+  try {
+    return await api.get<Result<Character>>('/character', { params });
+  } catch (err) {
+    return {
+      data: {
+        info: {
+          pages: 0,
+          count: 0,
+        },
+        results: [],
+      },
+    };
+  }
 };
 
 interface FetchCharacterParams {

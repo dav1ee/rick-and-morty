@@ -2,16 +2,17 @@
 
 import { useState } from 'react';
 import Link from 'next/link';
+import type { UrlObject } from 'url';
 
 interface PaginationProps {
-  route: string;
+  href: Omit<UrlObject, 'query'> & { query?: Record<string, any> };
   totalPages: number;
   currentPage: number;
   portion?: number;
 }
 
 export const Pagination: React.FC<PaginationProps> = ({
-  route,
+  href,
   totalPages,
   currentPage,
   portion = 10,
@@ -39,12 +40,12 @@ export const Pagination: React.FC<PaginationProps> = ({
             <Link
               className={`pagination-pages__item ${page === currentPage && 'active'}`}
               href={
-                route === '/characters'
+                href.pathname === '/characters'
                   ? {
-                      pathname: route,
-                      query: { page },
+                      ...href,
+                      query: { ...href.query, page },
                     }
-                  : `${route}/${page}`
+                  : `${href.pathname}/${page}`
               }
               key={page}>
               {page}

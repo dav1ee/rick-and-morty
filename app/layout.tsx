@@ -1,7 +1,5 @@
 import { Space_Mono } from '@next/font/google';
 
-import { Particle } from './shared/Particle';
-import { FloatingButton } from './shared/FloatingButton';
 import { Layout } from '@components';
 
 import '../styles/globals.scss';
@@ -20,9 +18,9 @@ const RootLayout: React.FC<RootLayoutProps> = ({ children }) => {
     <html className={spaceMono.className}>
       <head />
       <body>
-        <Particle />
+        <Layout.Particle />
         <Layout.Header />
-        <FloatingButton />
+        <Layout.FloatingButton />
 
         <section className="page">
           <div className="container">{children}</div>
