@@ -8,7 +8,7 @@ interface CharacterLayoutProps {
 const CharacterLayout = ({ children }: CharacterLayoutProps) => {
   return (
     <>
-      <Layout.GoBack name="Characters" route={`${ROUTES.CHARACTERS}/1`} />
+      <Layout.GoBack name="Characters" route={ROUTES.CHARACTERS} />
       {children}
     </>
   );

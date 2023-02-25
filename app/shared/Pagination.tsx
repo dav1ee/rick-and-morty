@@ -38,7 +38,14 @@ export const Pagination: React.FC<PaginationProps> = ({
           .map((page) => (
             <Link
               className={`pagination-pages__item ${page === currentPage && 'active'}`}
-              href={`${route}/${page}`}
+              href={
+                route === '/characters'
+                  ? {
+                      pathname: route,
+                      query: { page },
+                    }
+                  : `${route}/${page}`
+              }
               key={page}>
               {page}
             </Link>

@@ -61,6 +61,23 @@ a {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 5px;
+  margin-top: 30px;
+}
+
+.top-bar {
+  margin-bottom: 30px;
+}
+
+.title {
+  font-size: 22px;
+  font-weight: 400;
+  margin-bottom: 30px;
+}
+
+.justify-between {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 #tsparticles {
@@ -70,16 +87,4 @@ a {
   pointer-events: none;
   z-index: -1;
   animation: particles 5s ease;
-}
-
-.justify-between {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.title {
-  font-size: 22px;
-  font-weight: 400;
-  margin-bottom: 30px;
 }
