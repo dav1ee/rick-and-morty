@@ -33,7 +33,7 @@ const HomePage = async () => {
 
       <ul className="bottom-nav">
         <li className="bottom-nav__item">
-          <Link className="bottom-nav__link" href={`${ROUTES.CHARACTERS}/1`}>
+          <Link className="bottom-nav__link" href={`${ROUTES.CHARACTERS}?page=1`}>
             characters: {charactersCount}
           </Link>
         </li>

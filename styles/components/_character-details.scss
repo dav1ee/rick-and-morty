@@ -13,10 +13,20 @@
   }
 
   &__right {
+    position: relative;
     flex: 1;
     margin-left: 100px;
     padding-left: 100px;
-    border-left: 2px solid $green;
+
+    &::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      width: 2px;
+      height: 100%;
+      background-color: $green;
+      animation: show-up 1s ease-out forwards;
+    }
   }
 
   &__info {

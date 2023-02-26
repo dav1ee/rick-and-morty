@@ -40,7 +40,7 @@ export const Filter: React.FC<FilterProps> = ({ items }) => {
                 aria-selected={option.label === item.value}
                 role="option"
                 key={option.label}>
-                <Link className="filter-list__link" href={option.href} prefetch={false}>
+                <Link className="filter-list__link" href={option.href}>
                   {option.label}
                 </Link>
               </li>

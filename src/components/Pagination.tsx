@@ -47,7 +47,8 @@ export const Pagination: React.FC<PaginationProps> = ({
                     }
                   : `${href.pathname}/${page}`
               }
-              key={page}>
+              key={page}
+              prefetch={href.pathname === '/characters' ? false : true}>
               {page}
             </Link>
           ))}
