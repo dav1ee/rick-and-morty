@@ -10,6 +10,8 @@ import { getRandomCharacters } from '@utils/helpers';
 import { ROUTES } from '@utils/constants';
 import { Character } from '@components';
 
+export const dynamic = 'force-dynamic';
+
 const HomePage = async () => {
   const charactersCount = (await fetchCharacters()).data.info.count;
   const charactersIds = getRandomCharacters(4, charactersCount);
