@@ -7,9 +7,11 @@ export const generateStaticParams = async () => {
   const locationsResponse = await fetchLocations();
   const pages = locationsResponse.data.info.pages;
 
-  return Array.from({ length: pages }, (_, index: number) => index + 1).map((page) => ({
-    page: page.toString(),
-  }));
+  return Array.from({ length: pages }, (_, index: number) => index + 1).map(
+    (page) => ({
+      page: page.toString()
+    })
+  );
 };
 
 interface LocationsPageProps {
@@ -21,7 +23,7 @@ interface LocationsPageProps {
 const LocationsPage = async ({ params }: LocationsPageProps) => {
   const [locationsResponse, locationsPages] = await Promise.all([
     await fetchLocations({ params: { page: +params.page } }),
-    (await fetchLocations()).data.info.pages,
+    (await fetchLocations()).data.info.pages
   ]);
 
   const locations = locationsResponse.data.results;

@@ -10,7 +10,7 @@ import { ROUTES } from '@utils/constants';
 const links = [
   { label: 'Characters', path: `${ROUTES.CHARACTERS}?page=1` },
   { label: 'Locations', path: `${ROUTES.LOCATIONS}/1` },
-  { label: 'Episodes', path: `${ROUTES.EPISODES}/1` },
+  { label: 'Episodes', path: `${ROUTES.EPISODES}/1` }
 ];
 
 export const Header = () => {

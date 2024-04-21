@@ -21,14 +21,14 @@ const CharactersPage = async ({ searchParams }: CharactersPageProps) => {
   const filters = {
     ...(searchParams?.status && { status: searchParams.status }),
     ...(searchParams?.gender && { gender: searchParams.gender }),
-    ...(searchParams?.name && { name: searchParams.name }),
+    ...(searchParams?.name && { name: searchParams.name })
   };
 
   const [charactersResponse, charactersPages] = await Promise.all([
     await fetchCharacters({
-      params: { page: currentPage, ...filters },
+      params: { page: currentPage, ...filters }
     }),
-    (await fetchCharacters({ params: { ...filters } })).data.info.pages,
+    (await fetchCharacters({ params: { ...filters } })).data.info.pages
   ]);
 
   const characters = charactersResponse.data.results;
@@ -47,24 +47,24 @@ const CharactersPage = async ({ searchParams }: CharactersPageProps) => {
                   label: 'all',
                   href: {
                     pathname: ROUTES.CHARACTERS,
-                    query: { ...filters, status: undefined },
-                  },
+                    query: { ...filters, status: undefined }
+                  }
                 },
                 {
                   label: 'alive',
                   href: {
                     pathname: ROUTES.CHARACTERS,
-                    query: { ...filters, status: 'alive' },
-                  },
+                    query: { ...filters, status: 'alive' }
+                  }
                 },
                 {
                   label: 'dead',
                   href: {
                     pathname: ROUTES.CHARACTERS,
-                    query: { ...filters, status: 'dead' },
-                  },
-                },
-              ],
+                    query: { ...filters, status: 'dead' }
+                  }
+                }
+              ]
             },
 
             {
@@ -76,38 +76,38 @@ const CharactersPage = async ({ searchParams }: CharactersPageProps) => {
                   label: 'all',
                   href: {
                     pathname: ROUTES.CHARACTERS,
-                    query: { ...filters, gender: undefined },
-                  },
+                    query: { ...filters, gender: undefined }
+                  }
                 },
                 {
                   label: 'male',
                   href: {
                     pathname: ROUTES.CHARACTERS,
-                    query: { ...filters, gender: 'male' },
-                  },
+                    query: { ...filters, gender: 'male' }
+                  }
                 },
                 {
                   label: 'female',
                   href: {
                     pathname: ROUTES.CHARACTERS,
-                    query: { ...filters, gender: 'female' },
-                  },
+                    query: { ...filters, gender: 'female' }
+                  }
                 },
                 {
                   label: 'genderless',
                   href: {
                     pathname: ROUTES.CHARACTERS,
-                    query: { ...filters, gender: 'genderless' },
-                  },
-                },
-              ],
+                    query: { ...filters, gender: 'genderless' }
+                  }
+                }
+              ]
             },
 
             {
               type: 'input',
               label: 'name',
-              value: filters?.name ?? '',
-            },
+              value: filters?.name ?? ''
+            }
           ]}
         />
 
@@ -125,7 +125,9 @@ const CharactersPage = async ({ searchParams }: CharactersPageProps) => {
           ))}
         </div>
       ) : (
-        <div className="characters-container--empty">Characters were not found</div>
+        <div className="characters-container--empty">
+          Characters were not found
+        </div>
       )}
     </>
   );

@@ -39,7 +39,8 @@ export const Filter: React.FC<FilterProps> = ({ items }) => {
                 className="filter-list__item"
                 aria-selected={option.label === item.value}
                 role="option"
-                key={option.label}>
+                key={option.label}
+              >
                 <Link className="filter-list__link" href={option.href}>
                   {option.label}
                 </Link>

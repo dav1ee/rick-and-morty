@@ -15,10 +15,15 @@ export const Pagination: React.FC<PaginationProps> = ({
   href,
   totalPages,
   currentPage,
-  portion = 10,
+  portion = 10
 }) => {
-  const [portionNumber, setPortionNumber] = useState(Math.ceil(currentPage / portion));
-  const pages = Array.from({ length: totalPages }, (_, index: number) => index + 1);
+  const [portionNumber, setPortionNumber] = useState(
+    Math.ceil(currentPage / portion)
+  );
+  const pages = Array.from(
+    { length: totalPages },
+    (_, index: number) => index + 1
+  );
 
   const portionCount = Math.ceil(totalPages / portion);
 
@@ -28,14 +33,20 @@ export const Pagination: React.FC<PaginationProps> = ({
   return (
     <div className="pagination">
       {portionNumber > 1 && (
-        <button className="pagination-control" onClick={() => setPortionNumber(portionNumber - 1)}>
+        <button
+          className="pagination-control"
+          onClick={() => setPortionNumber(portionNumber - 1)}
+        >
           {'←'}
         </button>
       )}
 
       <div className="pagination-pages">
         {pages
-          .filter((page) => page >= leftPortionPageNumber && page <= rightPortionPageNumber)
+          .filter(
+            (page) =>
+              page >= leftPortionPageNumber && page <= rightPortionPageNumber
+          )
           .map((page) => (
             <Link
               className={`pagination-pages__item ${page === currentPage && 'active'}`}
@@ -43,19 +54,23 @@ export const Pagination: React.FC<PaginationProps> = ({
                 href.pathname === '/characters'
                   ? {
                       ...href,
-                      query: { ...href.query, page },
+                      query: { ...href.query, page }
                     }
                   : `${href.pathname}/${page}`
               }
               key={page}
-              prefetch={href.pathname === '/characters' ? false : true}>
+              prefetch={href.pathname === '/characters' ? false : true}
+            >
               {page}
             </Link>
           ))}
       </div>
 
       {portionCount > portionNumber && (
-        <button className="pagination-control" onClick={() => setPortionNumber(portionNumber + 1)}>
+        <button
+          className="pagination-control"
+          onClick={() => setPortionNumber(portionNumber + 1)}
+        >
           {'→'}
         </button>
       )}

@@ -8,8 +8,8 @@ export const StatusCircle: React.FC<StatusCircleProps> = ({ status }) => (
       status === 'Alive'
         ? 'status-circle--alive'
         : status === 'Dead'
-        ? 'status-circle--dead'
-        : 'status-circle--unknown'
+          ? 'status-circle--dead'
+          : 'status-circle--unknown'
     }`}
   />
 );

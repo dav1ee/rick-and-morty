@@ -8,5 +8,5 @@ export const ROUTES = {
   LOCATION: '/location',
 
   EPISODES: '/episodes',
-  EPISODE: '/episode',
+  EPISODE: '/episode'
 };

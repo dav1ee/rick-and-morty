@@ -9,7 +9,10 @@ interface NavLinkProps {
 export const NavLink: React.FC<NavLinkProps> = ({ path, label, isActive }) => {
   return (
     <li className="nav-list__item">
-      <Link className={`nav-list__link ${isActive ? 'active' : ''}`} href={path}>
+      <Link
+        className={`nav-list__link ${isActive ? 'active' : ''}`}
+        href={path}
+      >
         {label}
       </Link>
     </li>

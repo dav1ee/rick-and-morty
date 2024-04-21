@@ -7,8 +7,11 @@ import { Character } from '@components';
 export const generateStaticParams = async () => {
   const charactersCount = (await fetchCharacters()).data.info.count;
 
-  return Array.from({ length: charactersCount }, (_, index: number) => index + 1).map((id) => ({
-    id: id.toString(),
+  return Array.from(
+    { length: charactersCount },
+    (_, index: number) => index + 1
+  ).map((id) => ({
+    id: id.toString()
   }));
 };
 
@@ -20,7 +23,7 @@ interface CharacterPageProps {
 
 const CharacterPage = async ({ params }: CharacterPageProps) => {
   const characterResponse = await fetchCharacter({
-    params: { id: +params.id },
+    params: { id: +params.id }
   });
 
   const character = characterResponse.data;
@@ -28,7 +31,9 @@ const CharacterPage = async ({ params }: CharacterPageProps) => {
   const originId = getIdFromUrl('location', character.origin.url);
   const locationId = getIdFromUrl('location', character.location.url);
   const episodeId = getIdFromUrl('episode', character.episode[0]);
-  const episodesIds = character.episode.map((url) => +getIdFromUrl('episode', url));
+  const episodesIds = character.episode.map(
+    (url) => +getIdFromUrl('episode', url)
+  );
 
   const episodeResponse = await fetchEpisode({ params: { id: +episodeId } });
   const episodeName = episodeResponse.data.name;

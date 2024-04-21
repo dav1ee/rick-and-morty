@@ -22,7 +22,7 @@ export const DetailedInfo: React.FC<Character & DetailedInfoProps> = ({
   episodeName,
   originId,
   locationId,
-  episodeId,
+  episodeId
 }) => {
   return (
     <div className="character-details__info">
@@ -60,10 +60,14 @@ export const DetailedInfo: React.FC<Character & DetailedInfoProps> = ({
       </div>
 
       <div className="character-details__info-item">
-        <span className="character-details__info-label">Last known location:</span>
+        <span className="character-details__info-label">
+          Last known location:
+        </span>
         <div>
           {locationId !== '' ? (
-            <Link href={`${ROUTES.LOCATION}/${locationId}`}>{locationName}</Link>
+            <Link href={`${ROUTES.LOCATION}/${locationId}`}>
+              {locationName}
+            </Link>
           ) : (
             'Unknown'
           )}

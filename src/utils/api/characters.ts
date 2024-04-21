@@ -4,7 +4,9 @@ interface FetchCharactersParams {
   params?: CharacterFilter;
 }
 
-export const fetchCharacters = async ({ params }: FetchCharactersParams = {}) => {
+export const fetchCharacters = async ({
+  params
+}: FetchCharactersParams = {}) => {
   try {
     return await api.get<Result<Character>>('/character', { params });
   } catch (err) {
@@ -12,10 +14,10 @@ export const fetchCharacters = async ({ params }: FetchCharactersParams = {}) =>
       data: {
         info: {
           pages: 0,
-          count: 0,
+          count: 0
         },
-        results: [],
-      },
+        results: []
+      }
     };
   }
 };
@@ -36,10 +38,12 @@ interface FetchMultipleCharactersParams {
   } & CharacterFilter;
 }
 
-export const fetchMultipleCharacters = async ({ params }: FetchMultipleCharactersParams) => {
+export const fetchMultipleCharacters = async ({
+  params
+}: FetchMultipleCharactersParams) => {
   const multipleCharactersResponse = await api.get<Character | Character[]>(
     `/character/${params.multiple}`,
-    { params },
+    { params }
   );
 
   if (Array.isArray(multipleCharactersResponse.data)) {
@@ -47,5 +51,8 @@ export const fetchMultipleCharacters = async ({ params }: FetchMultipleCharacter
     return { ...multipleCharactersResponse, data };
   }
 
-  return { ...multipleCharactersResponse, data: [multipleCharactersResponse.data] };
+  return {
+    ...multipleCharactersResponse,
+    data: [multipleCharactersResponse.data]
+  };
 };

@@ -8,7 +8,7 @@ interface HeadProps {
 
 const Head = async ({ params }: HeadProps) => {
   const characterResponse = await fetchCharacter({
-    params: { id: +params.id },
+    params: { id: +params.id }
   });
 
   const characterName = characterResponse.data.name;

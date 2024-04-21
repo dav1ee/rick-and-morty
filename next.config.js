@@ -2,11 +2,11 @@
 const nextConfig = {
   reactStrictMode: true,
   experimental: {
-    appDir: true,
+    appDir: true
   },
   images: {
-    domains: ['rickandmortyapi.com'],
-  },
+    domains: ['rickandmortyapi.com']
+  }
 };
 
 module.exports = nextConfig;

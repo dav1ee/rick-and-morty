@@ -7,5 +7,5 @@ export const Layout = {
   Particle,
   Header,
   FloatingButton,
-  GoBack,
+  GoBack
 };

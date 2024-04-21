@@ -7,9 +7,11 @@ export const generateStaticParams = async () => {
   const episodesResponse = await fetchEpisodes();
   const pages = episodesResponse.data.info.pages;
 
-  return Array.from({ length: pages }, (_, index: number) => index + 1).map((page) => ({
-    page: page.toString(),
-  }));
+  return Array.from({ length: pages }, (_, index: number) => index + 1).map(
+    (page) => ({
+      page: page.toString()
+    })
+  );
 };
 
 interface EpisodesPageProps {
@@ -21,7 +23,7 @@ interface EpisodesPageProps {
 const EpisodesPage = async ({ params }: EpisodesPageProps) => {
   const [episodesResponse, episodesPages] = await Promise.all([
     await fetchEpisodes({ params: { page: +params.page } }),
-    (await fetchEpisodes()).data.info.pages,
+    (await fetchEpisodes()).data.info.pages
   ]);
 
   const episodes = episodesResponse.data.results;

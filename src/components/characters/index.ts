@@ -7,5 +7,5 @@ export const Character = {
   Card,
   DetailedInfo,
   Episodes,
-  Filter,
+  Filter
 };

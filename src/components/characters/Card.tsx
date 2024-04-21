@@ -4,7 +4,14 @@ import Image from 'next/image';
 import { ROUTES } from '@utils/constants';
 import { getIdFromUrl } from '@utils/helpers';
 
-export const Card: React.FC<Character> = ({ id, image, name, species, status, location }) => {
+export const Card: React.FC<Character> = ({
+  id,
+  image,
+  name,
+  species,
+  status,
+  location
+}) => {
   const locationId = getIdFromUrl('location', location.url);
 
   return (
@@ -20,7 +27,10 @@ export const Card: React.FC<Character> = ({ id, image, name, species, status, lo
 
       <div className="character-card__info">
         <div className="character-card__info-item">
-          <Link className="character-card__info-name" href={`${ROUTES.CHARACTER}/${id}`}>
+          <Link
+            className="character-card__info-name"
+            href={`${ROUTES.CHARACTER}/${id}`}
+          >
             {name}
           </Link>
         </div>
@@ -37,9 +47,13 @@ export const Card: React.FC<Character> = ({ id, image, name, species, status, lo
         </div>
 
         <div className="character-card__info-item">
-          <span className="character-card__info-label">Last known location:</span>
+          <span className="character-card__info-label">
+            Last known location:
+          </span>
           {location.url.length > 0 ? (
-            <Link href={`${ROUTES.LOCATION}/${locationId}`}>{location.name}</Link>
+            <Link href={`${ROUTES.LOCATION}/${locationId}`}>
+              {location.name}
+            </Link>
           ) : (
             <div>Unknown</div>
           )}

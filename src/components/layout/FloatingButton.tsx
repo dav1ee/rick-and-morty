@@ -6,7 +6,9 @@ interface FloatingButtonProps {
   distance?: number;
 }
 
-export const FloatingButton: React.FC<FloatingButtonProps> = ({ distance = 75 }) => {
+export const FloatingButton: React.FC<FloatingButtonProps> = ({
+  distance = 75
+}) => {
   const [scrollPosition, setScrollPosition] = useState(0);
 
   useEffect(() => {
@@ -28,7 +30,8 @@ export const FloatingButton: React.FC<FloatingButtonProps> = ({ distance = 75 })
   return (
     <button
       className={`floating-button ${scrollPosition <= distance && 'hidden'}`}
-      onClick={handleClick}>
+      onClick={handleClick}
+    >
       ↑
     </button>
   );

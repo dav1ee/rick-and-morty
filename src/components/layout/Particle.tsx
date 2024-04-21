@@ -18,21 +18,21 @@ export const Particle = () => {
             value: 19,
             density: {
               enable: false,
-              value_area: 800,
-            },
+              value_area: 800
+            }
           },
           color: {
-            value: '#07da63',
+            value: '#07da63'
           },
           shape: {
             type: 'polygon',
             stroke: {
               width: 0,
-              color: '#000000',
+              color: '#000000'
             },
             polygon: {
-              nb_sides: 7,
-            },
+              nb_sides: 7
+            }
           },
           opacity: {
             value: 0.4,
@@ -41,8 +41,8 @@ export const Particle = () => {
               enable: false,
               speed: 1,
               opacity_min: 0.1,
-              sync: false,
-            },
+              sync: false
+            }
           },
           size: {
             value: 3.5,
@@ -51,15 +51,15 @@ export const Particle = () => {
               enable: false,
               speed: 4.786101162224897,
               size_min: 0.1,
-              sync: false,
-            },
+              sync: false
+            }
           },
           line_linked: {
             enable: true,
             distance: 150,
             color: '#ffffff',
             opacity: 0.4,
-            width: 1,
+            width: 1
           },
           move: {
             enable: true,
@@ -72,11 +72,11 @@ export const Particle = () => {
             attract: {
               enable: false,
               rotateX: 600,
-              rotateY: 1200,
-            },
-          },
+              rotateY: 1200
+            }
+          }
         },
-        retina_detect: true,
+        retina_detect: true
       }}
     />
   );

@@ -4,7 +4,7 @@ import {
   fetchCharacters,
   fetchMultipleCharacters,
   fetchLocations,
-  fetchEpisodes,
+  fetchEpisodes
 } from '@utils/api';
 import { getRandomCharacters } from '@utils/helpers';
 import { ROUTES } from '@utils/constants';
@@ -14,7 +14,7 @@ const HomePage = async () => {
   const charactersCount = (await fetchCharacters()).data.info.count;
   const charactersIds = getRandomCharacters(4, charactersCount);
   const charactersResponse = await fetchMultipleCharacters({
-    params: { multiple: charactersIds },
+    params: { multiple: charactersIds }
   });
   const locationsResponse = await fetchLocations();
   const episodesResponse = await fetchEpisodes();
@@ -33,7 +33,10 @@ const HomePage = async () => {
 
       <ul className="bottom-nav">
         <li className="bottom-nav__item">
-          <Link className="bottom-nav__link" href={`${ROUTES.CHARACTERS}?page=1`}>
+          <Link
+            className="bottom-nav__link"
+            href={`${ROUTES.CHARACTERS}?page=1`}
+          >
             characters: {charactersCount}
           </Link>
         </li>

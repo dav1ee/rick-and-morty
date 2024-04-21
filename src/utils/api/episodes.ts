@@ -24,10 +24,12 @@ interface fetchMultipleEpisodesParams {
   } & EpisodeFilter;
 }
 
-export const fetchMultipleEpisodes = async ({ params }: fetchMultipleEpisodesParams) => {
+export const fetchMultipleEpisodes = async ({
+  params
+}: fetchMultipleEpisodesParams) => {
   const multipleEpisodesResponse = await api.get<Episode | Episode[]>(
     `/episode/${params.multiple}`,
-    { params },
+    { params }
   );
 
   if (Array.isArray(multipleEpisodesResponse.data)) {

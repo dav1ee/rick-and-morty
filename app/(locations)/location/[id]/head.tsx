@@ -8,7 +8,7 @@ interface HeadProps {
 
 const Head = async ({ params }: HeadProps) => {
   const locationResponse = await fetchLocation({
-    params: { id: +params.id },
+    params: { id: +params.id }
   });
 
   const locationName = locationResponse.data.name;
